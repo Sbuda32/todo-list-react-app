@@ -61,15 +61,13 @@ class TodoList extends React.Component {
 
     //Function prevents the submit from reloading page @param: {e}
     addItem = ( e ) => {
-        
-        //Variables that holds the current task and the stored tasks
-        let currentTask = this.state.currentTask, storedTasks = this.storedTasks;
 
         e.preventDefault();
         
         //Update the array of the stored task with the new task
-        storedTasks = [...storedTasks, currentTask];
-        const tasks = [...storedTasks]
+        this.storedTasks = [...this.storedTasks, this.state.currentTask];
+        console.log('Stored tasks:- ' + this.storedTasks + ' Current task:- ' + this.state.currentTask);
+        const tasks = [...this.storedTasks]
         
         //Change the array state of the list of tasks
         this.setState( (state) => {
